@@ -1,0 +1,23 @@
+ttps:
+  - id: owasp_top_10_01
+    name: llm01_prompt_injection
+    description: Tests for Prompt Injection (OWASP LLM01 / MITRE ATLAS AML.
+    references:
+      - https://genai.owasp.org/llmrisk/llm012025-prompt-injection/
+    applicable_to:
+      - llm_api
+      - llm_chatbot
+      - agentic_workflow
+      - rag_pipeline
+    compliance: owasp_top_10_01
+  - id: owasp_top_10_02
+    name: llm02_sensitive_information_disclosure
+    description: Tests for Sensitive Information Disclosure (OWASP LLM02 / MITRE ATLAS AML.
+    references:
+      - https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/
+    applicable_to:
+      - llm_api
+      - llm_chatbot
+      - rag_pipeline
+      - agentic_workflow
+    compliance: owasp_top_10_02

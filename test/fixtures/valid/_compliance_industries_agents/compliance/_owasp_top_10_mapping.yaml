@@ -1,0 +1,15 @@
+compliance:
+  - id: owasp_top_10_01
+    map:
+      owasp_llm_top_10:
+        - LLM01
+      nist_ai_rmf:
+        - GOVERN 1.1
+        - MANAGE 2.2
+  - id: owasp_top_10_02
+    map:
+      owasp_llm_top_10:
+        - LLM02
+      nist_ai_rmf:
+        - GOVERN 1.2
+        - MANAGE 2.4

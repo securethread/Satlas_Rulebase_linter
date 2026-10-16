@@ -1,0 +1,27 @@
+# Copy to <rules repo>/.github/workflows/rblint.yml, then in branch protection for main:
+#   Require status checks to pass -> select "rblint", and turn on "Do not allow bypassing".
+# RBLINT_TGZ_URL: where the release tarball lives (a GitHub release asset, an internal file
+# server...). Keep the version in sync with minVersion in .rblintrc.json.
+name: rblint
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  rblint:
+    runs-on: ubuntu-latest
+    env:
+      RBLINT_VERSION: "0.4.0"
+      RBLINT_TGZ_URL: ${{ vars.RBLINT_TGZ_URL }}   # e.g. https://.../rblint-0.4.0.tgz
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install rblint
+        run: |
+          curl -fsSL -H "Authorization: Bearer ${{ secrets.RBLINT_TOKEN }}" -o rblint.tgz "$RBLINT_TGZ_URL"
+          npm install -g ./rblint.tgz
+          rblint --version
+      - name: Lint the rule base
+        run: rblint --format github

@@ -1,0 +1,30 @@
+{
+  "name": "rblint",
+  "version": "0.4.0",
+  "description": "Linter for the SATLAS rule base: file.list, YAML format, per-directory schemas and cross-file references",
+  "type": "module",
+  "bin": {
+    "rblint": "bin/rblint.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "test",
+    "ci",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "yaml": "2.8.1"
+  },
+  "bundleDependencies": [
+    "yaml"
+  ],
+  "license": "UNLICENSED"
+}

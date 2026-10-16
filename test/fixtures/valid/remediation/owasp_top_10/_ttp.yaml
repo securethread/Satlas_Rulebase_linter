@@ -1,0 +1,5 @@
+ttps:
+  - id: owasp_top_10_01
+    name: llm01_prompt_injection
+  - id: owasp_top_10_02
+    name: llm02_sensitive_information_disclosure

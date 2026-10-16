@@ -1,0 +1,23 @@
+ttps:
+  - id: agent_01
+    name: asi01_agent_goal_hijack
+    description: Tests for Agent Goal Hijack (OWASP ASI01:2026 / MITRE ATLAS AML.
+    references:
+      - https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    applicable_to:
+      - ai_agent
+      - agentic_workflow
+      - multi_agent
+      - tool_augmented_llm
+    compliance: agent_01
+  - id: agent_02
+    name: asi02_tool_misuse_exploitation
+    description: Tests for Tool Misuse & Exploitation (OWASP ASI02:2026 / MITRE ATLAS AML.
+    references:
+      - https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    applicable_to:
+      - ai_agent
+      - agentic_workflow
+      - tool_augmented_llm
+      - multi_agent
+    compliance: agent_02

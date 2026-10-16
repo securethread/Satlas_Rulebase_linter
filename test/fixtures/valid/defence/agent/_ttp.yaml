@@ -1,0 +1,5 @@
+ttps:
+  - id: agent_01
+    name: asi01_agent_goal_hijack
+  - id: agent_02
+    name: asi02_tool_misuse_exploitation

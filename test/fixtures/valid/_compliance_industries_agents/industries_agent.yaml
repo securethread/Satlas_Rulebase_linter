@@ -1,0 +1,15 @@
+agents:
+  - name: Generic
+    description: Applies to any deployment
+  - name: Banking
+    description: ''
+    sub:
+      - name: Loan
+        description: ''
+      - name: Payments
+        description: ''
+  - name: Healthcare
+    description: ''
+    sub:
+      - name: Records
+        description: ''

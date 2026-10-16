@@ -1,0 +1,15 @@
+compliance:
+  - id: agent_01
+    map:
+      owasp_agentic_top_10:
+        - ASI01
+      nist_ai_rmf:
+        - GOVERN 1.1
+        - MANAGE 2.2
+  - id: agent_02
+    map:
+      owasp_agentic_top_10:
+        - ASI02
+      nist_ai_rmf:
+        - GOVERN 1.1
+        - MANAGE 2.4

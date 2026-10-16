@@ -1,0 +1,13 @@
+remediations:
+  - id: agent_01
+    target: agent_01.directGoalOverride.001.sb
+    title: asi01_agent_goal_hijack remediation
+    mitigation_steps:
+      - 'Immutable goal anchoring separated from untrusted content: Bind the agent''s objective at task initialization in a privileged channel and treat all user input and retrieved/tool content as untrusted data, never as goal-changing instructions. Reject any directive - direct or embedded in documents - that attempts to replace, extend, or background the original goal, and require independent re-authorization for any legitimate goal change.'
+      - 'Objective-drift monitoring and outbound-action gating: Continuously compare planned vs. executed actions against the anchored goal and alert on deviation. Gate every consequential or outbound action (external send, bulk export, secret read) behind confirmation, and block sends to destinations not on the task allow-list regardless of what the prompt or retrieved content claims.'
+  - id: agent_02
+    target: agent_02.fileScopeEscape.001.sb
+    title: asi02_tool_misuse_exploitation remediation
+    mitigation_steps:
+      - 'Per-task tool allow-listing with parameter validation and confirmation: Grant each agent only the minimum tools required and enforce an explicit per-task allow-list. Validate and sanitize every tool parameter - especially those derived from user or retrieved content - and reject invocations that exceed scope or carry destructive arguments. Gate irreversible/outbound actions (DELETE/DROP SQL, file deletion, outbound HTTP, credential access) behind mandatory human confirmation.'
+      - 'Tool-call audit logging, rate limits, and exfil-chain detection: Log every tool invocation with full arguments and provenance. Rate-limit consequential and bulk-read tools, detect confused-deputy and exfiltration chains (secret read -> bulk export -> external send), and block outbound calls to destinations not on the task allow-list.'

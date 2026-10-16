@@ -1,0 +1,13 @@
+remediations:
+  - id: owasp_top_10_01
+    target: owasp_top_10_01.directInstructionOverride.001.sb
+    title: llm01_prompt_injection remediation
+    mitigation_steps:
+      - 'Separate trusted instructions from untrusted content: Keep system instructions in a privileged channel and treat all user input and retrieved/ tool content as untrusted data, never as instructions. Delimit and label external content, and instruct the model to never follow directives found inside it.'
+      - 'Output-side injection detection: Monitor responses for injection success markers, persona adoption, and system-prompt disclosure. Normalize encodings (Base64/ROT13/leetspeak/zero-width) before matching, and gate consequential actions behind confirmation.'
+  - id: owasp_top_10_02
+    target: owasp_top_10_02.piiTrainingDataExtraction.001.sb
+    title: llm02_sensitive_information_disclosure remediation
+    mitigation_steps:
+      - 'Output-side secret and PII filtering: Scan every response for secret and PII patterns (email/SSN/phone/credit-card regexes, API-key prefixes sk-/AKIA/ghp_/AIza, private-key headers) before returning it, and redact or block on match. Never place real credentials, connection strings, or private keys in the model''s context or system prompt; source them from a vault the model cannot read.'
+      - 'Constrain memorization and tool exposure: Apply differential privacy and deduplication during fine-tuning to limit verbatim memorization, and add divergence/repetition-attack detection. Gate agentic tools that return secrets (list_secret_agents, get_internal_config) behind authorization and scrub their output before it reaches the model or the user.'
